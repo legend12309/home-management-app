@@ -1,0 +1,97 @@
+================================================================================
+📥 INSTALL GIT NOW - FOLLOW THESE STEPS
+================================================================================
+
+Git installer is downloading in your browser...
+
+================================================================================
+STEP 1: RUN THE INSTALLER
+================================================================================
+
+1. Go to your Downloads folder
+2. Find: Git-2.43.0-64-bit.exe
+3. Double-click it
+4. Click "Yes" if asked about User Account Control
+
+================================================================================
+STEP 2: FOLLOW THE INSTALLER (USE DEFAULTS)
+================================================================================
+
+The installer will ask several questions. Use these settings:
+
+✅ License: Click "Next"
+✅ Destination: Click "Next" (default location)
+✅ Components: Keep ALL checked, click "Next"
+✅ Start Menu: Click "Next" (default)
+✅ Default Editor: Choose "Visual Studio Code" or "Nano", click "Next"
+
+⚠️ PATH ENVIRONMENT (IMPORTANT!):
+   Choose: "Git from the command line and also from 3rd-party software"
+   Click "Next"
+
+✅ HTTPS Transport: "Use the OpenSSL library", click "Next"
+✅ Line Endings: "Checkout Windows-style, commit Unix-style", click "Next"
+✅ Terminal: "Use Windows' default console window", click "Next"
+✅ Extra Options: Keep defaults, click "Next"
+✅ Experimental: Uncheck all, click "Next"
+✅ Ready to Install: Click "Install"
+✅ Wait for installation (2-3 minutes)
+✅ Click "Finish"
+
+================================================================================
+STEP 3: VERIFY INSTALLATION
+================================================================================
+
+1. CLOSE this terminal window completely
+2. Open a NEW PowerShell or Command Prompt
+3. Type: git --version
+4. You should see: git version 2.xx.x.windows.x
+
+If you see the version, Git is installed! ✅
+
+================================================================================
+STEP 4: UPLOAD YOUR PROJECT
+================================================================================
+
+After Git is installed and verified, open a NEW terminal and type:
+
+cd "e:\Ghra sethu"
+.\upload_to_github.bat
+
+That's it! The script will do everything automatically!
+
+OR run these commands manually:
+
+cd "e:\Ghra sethu"
+git init
+git add .
+git commit -m "Initial: Complete Gharsethu app"
+git branch -M main
+git remote add origin https://github.com/legend12309/home-management-app.git
+git push -u origin main
+
+================================================================================
+⏱️ TOTAL TIME: 5-10 MINUTES
+================================================================================
+
+Most of the time is waiting for installation. Actual setup is fast!
+
+================================================================================
+🎯 AFTER INSTALLATION
+================================================================================
+
+Once Git is installed, come back and tell me "Git is installed" or
+just run: .\upload_to_github.bat
+
+I'll help you finish the upload!
+
+================================================================================
+🆘 IF YOU GET STUCK
+================================================================================
+
+Read: INSTALL_GIT_THEN_UPLOAD.md for more details
+
+Or switch to Option 2: Use GitHub Desktop instead
+
+================================================================================
+
