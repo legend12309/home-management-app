@@ -1,0 +1,85 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Helper function to check if user is family member
+    function isFamilyMember(familyId) {
+      return isAuthenticated() && 
+             request.auth.uid in resource.data.members;
+    }
+    
+    // Helper function to check if user is family admin
+    function isFamilyAdmin(familyId) {
+      return isAuthenticated() && 
+             request.auth.uid == resource.data.adminId;
+    }
+
+    // Users can only read/write their own data
+    match /users/{userId} {
+      allow read, write: if isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Family data - members can read, admin can write
+    match /families/{familyId} {
+      allow read: if isAuthenticated() && 
+                     (request.auth.uid in resource.data.members || 
+                      request.auth.uid == resource.data.adminId);
+      allow create: if isAuthenticated();
+      allow update, delete: if isAuthenticated() && 
+                              request.auth.uid == resource.data.adminId;
+    }
+
+    // Grocery items - family members can read/write
+    match /groceryItems/{itemId} {
+      allow read: if isAuthenticated();
+      allow create, update, delete: if isAuthenticated();
+    }
+
+    // Shopping lists - family members can read/write
+    match /shoppingLists/{listId} {
+      allow read: if isAuthenticated();
+      allow create, update, delete: if isAuthenticated();
+    }
+
+    // Chores - family members can read/write
+    match /chores/{choreId} {
+      allow read: if isAuthenticated();
+      allow create, update, delete: if isAuthenticated();
+    }
+
+    // Budgets - family members can read/write
+    match /budgets/{budgetId} {
+      allow read: if isAuthenticated();
+      allow create, update, delete: if isAuthenticated();
+    }
+
+    // Expenses - family members can read/write
+    match /expenses/{expenseId} {
+      allow read: if isAuthenticated();
+      allow create, update, delete: if isAuthenticated();
+    }
+
+    // Meal plans - family members can read/write
+    match /mealPlans/{planId} {
+      allow read: if isAuthenticated();
+      allow create, update, delete: if isAuthenticated();
+    }
+
+    // Recipes - family members can read/write
+    match /recipes/{recipeId} {
+      allow read: if isAuthenticated();
+      allow create, update, delete: if isAuthenticated();
+    }
+
+    // Festivals - family members can read/write
+    match /festivals/{festivalId} {
+      allow read: if isAuthenticated();
+      allow create, update, delete: if isAuthenticated();
+    }
+  }
+}
+
